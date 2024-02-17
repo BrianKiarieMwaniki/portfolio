@@ -1,0 +1,28 @@
+:root {
+  --color-primary:0, 181, 255;
+  --color-secondary: 0, 215, 255;
+  --color-accent: 0, 126, 178;
+  --font-color: 80, 80, 80;  
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body{
+    font-family: 'Fira sans', sans-serif;
+    margin:0;
+    padding:0;
+}
