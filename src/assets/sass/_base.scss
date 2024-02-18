@@ -1,13 +1,16 @@
 :root {
-  --color-primary:0, 181, 255;
+  --color-primary: 0, 181, 255;
   --color-secondary: 0, 215, 255;
   --color-accent: 0, 126, 178;
-  --font-color: 80, 80, 80;  
+  --font-color: 80, 80, 80;
+  --color-black: 30, 30, 30;
+  --color-white: 255, 255, 255;
 }
 
 * {
   margin: 0;
   padding: 0;
+  box-sizing: inherit;
 }
 
 *,
@@ -17,13 +20,28 @@
 }
 
 html {
-  box-sizing: border-box;
   font-size: 62.5%;
+
+  @include respond(tab-land) {
+    font-size: 56.25%; //1rem = 9px; 9px/16px = 56.25%
+  }
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
+
 }
 
-body{
-    font-family: 'Fira sans', sans-serif;
-    color: rgb(var(--font-color));
-    margin:0;
+body {
+  box-sizing: border-box;
+  font-family: "Fira sans", sans-serif;
+  color: rgb(var(--font-color));
+  margin: 0;
+  padding: 3rem;
+
+  @include respond(tab-port){
     padding:0;
+  }
 }
