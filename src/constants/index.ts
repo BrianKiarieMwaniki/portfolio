@@ -1,4 +1,20 @@
-import { ezzybooks, selltime, upwork } from "../assets";
+import {
+  azure,
+  blazor,
+  csharp,
+  css,
+  ezzybooks,
+  git,
+  html,
+  javascript,
+  netcore,
+  nodejs,
+  reactjs,
+  selltime,
+  sql,
+  typescript,
+  upwork,
+} from "../assets";
 
 const experiences = [
   {
@@ -52,5 +68,53 @@ const experiences = [
   },
 ];
 
+const skills = [
+  {
+    name: "HTML",
+    icon: html,
+  },
+  {
+    name: "CSS",
+    icon: css,
+  },
+  {
+    name: "C#",
+    icon: csharp,
+  },
+  {
+    name: ".NET Core",
+    icon: netcore,
+  },
+  {
+    name:"Javascript",
+    icon:javascript
+  },
+  {
+    name:"Typescript",
+    icon:typescript
+  },
+  {
+    name:"React",
+    icon: reactjs
+  },{
+    name: "Blazor",
+    icon:blazor
+  },
+  {
+    name:"Azure",
+    icon:azure
+  },
+  {
+    name:"NodeJs",
+    icon:nodejs
+  },
+  {
+    name: "SQL",
+    icon:sql
+  },{
+    name:"Git",
+    icon:git
+  }
+];
 
-export {experiences};
+export { experiences, skills };

@@ -15,3 +15,16 @@ export const textVariant = (delay?:number) => {
     },
   };
 };
+
+export const fadeIn = (direction?:string) =>{
+  return {
+    hidden: {
+      y: direction === "up" ? 100 : direction === "down" ? -100 : 0,
+      opacity: 0.25,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  };
+}
