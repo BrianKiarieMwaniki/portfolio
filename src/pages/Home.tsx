@@ -6,13 +6,13 @@ type Props = {};
 const Home = (props: Props) => {
   return (
     <>
-      <section>
+      <>
         <Hero />
-      </section>
+      </>
 
-      <section>
+      <>
         <AboutMe />
-      </section>
+      </>
 
       <section>
         <Projects />
