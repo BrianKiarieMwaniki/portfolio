@@ -7,9 +7,9 @@ type Props = {};
 const Hero: FC = (props: Props) => {
   const animatedText = useTypewriter({
     data: [
-      "Web Applications",
-      "Desktop Applications",
-      "Web APIs",
+      "Full-stack development",
+      "Front-end development",
+      "Back-end development",
     ],
     typingSpeed: 300,
     deletingSpeed: 300,
@@ -25,7 +25,7 @@ const Hero: FC = (props: Props) => {
           Hi, I'm  <span className="primary-color">Brian</span>{" "}
         </h1>
         <p className="paragraph">
-          I develop <span className="primary-color">{animatedText}</span>
+          I specialize in  <span className="primary-color">#{animatedText}</span>
         </p>
 
       </div>

@@ -1,6 +1,9 @@
 import hero_bg from "./images/hero-background.jpg";
 import heroDp from "./images/hero-dp.jpg";
 import logo from "./images/logo.png";
+import webDev from './images/webDevelopment.png';
+import desktopDev from './images/desktopDevelopment.png';
+import backendDev from './images/backendDevelopment.png';
 
 import azure from "./images/tech/azure.png";
 import blazor from "./images/tech/blazor.png";
@@ -19,6 +22,9 @@ export {
   hero_bg,
   heroDp,
   logo,
+  webDev, 
+  desktopDev,
+  backendDev,
   azure,
   blazor,
   csharp,
