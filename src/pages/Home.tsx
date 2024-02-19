@@ -1,5 +1,11 @@
-import React from "react";
-import { Hero, AboutMe, Projects, Skills, Contact } from "./../components/index";
+import {
+  Hero,
+  AboutMe,
+  Projects,
+  Skills,
+  Contact,
+  WorkExperience,
+} from "./../components/index";
 
 type Props = {};
 
@@ -12,6 +18,9 @@ const Home = (props: Props) => {
 
       <>
         <AboutMe />
+      </>
+      <>
+        <WorkExperience />
       </>
 
       <section>
@@ -30,10 +39,10 @@ const Home = (props: Props) => {
         </ul>
       </section>
       <section>
-        <Skills/>
+        <Skills />
       </section>
       <section>
-        <Contact/>
+        <Contact />
       </section>
     </>
   );
