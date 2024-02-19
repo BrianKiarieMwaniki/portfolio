@@ -2,8 +2,12 @@ import { useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer"
 
-export const useScrollAnimation = () =>{
-    const[ref, isInView] = useInView({triggerOnce:true, threshold:0.1});
+type UseScrollAnimationProps = {
+    triggerOnce?:boolean
+}
+
+export const useScrollAnimation = ({triggerOnce = true}:UseScrollAnimationProps = {}) =>{
+    const[ref, isInView] = useInView({triggerOnce:triggerOnce, threshold:0.1});
 
     const animation = useAnimation();
 

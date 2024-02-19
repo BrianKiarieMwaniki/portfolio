@@ -1,6 +1,6 @@
 import { skills } from "../constants";
 import { motion } from "framer-motion";
-
+import { useScrollAnimation, useStaggerAnimation } from "../hooks";
 
 type SkillCardProps = {
   name: string;
@@ -9,7 +9,7 @@ type SkillCardProps = {
 const SkillCard = ({ name, icon }: SkillCardProps) => {
   return (
     <motion.div
-      whileHover={{ scale: 1.05}}
+      whileHover={{ scale: 1.05 }}
       transition={{ type: "spring", stiffness: 300 }}
       className="skill-card hexagon"
     >
@@ -22,16 +22,27 @@ const SkillCard = ({ name, icon }: SkillCardProps) => {
 };
 
 const Skills = () => {
-  return (   
-      <section       
-        className="section skills"
-      >
-       
+  const { ref, isInView } = useScrollAnimation({ triggerOnce: false });
+  const scope = useStaggerAnimation({
+    isInView,
+    element: "article",
+    type: "spring",
+    bounce: 2.5,
+    stiffness: 200,
+    staggerEase: [0.01, 0.94, 1, 0.81],
+  });
+  return (
+    <div ref={ref}>
+      <section className="section skills">
+        <motion.div ref={scope} className="skills__cards">
           {skills.map((skill, index) => (
-            <SkillCard key={index} {...skill} />
+            <article key={index}>
+              <SkillCard {...skill} />
+            </article>
           ))}
+        </motion.div>
       </section>
-    
+    </div>
   );
 };
 
