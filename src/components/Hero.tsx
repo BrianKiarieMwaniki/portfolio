@@ -7,9 +7,9 @@ type Props = {};
 const Hero: FC = (props: Props) => {
   const animatedText = useTypewriter({
     data: [
-      "Software Developer",
-      "Front-end Developer",
-      "Back-end Developer",
+      "Web Applications",
+      "Desktop Applications",
+      "Web APIs",
     ],
     typingSpeed: 300,
     deletingSpeed: 300,
@@ -20,9 +20,15 @@ const Hero: FC = (props: Props) => {
       <div className="hero__logo-box">
         <img src={logo} alt="logo" className="hero__logo" />
       </div>
-      <h1 className="heading">
-        Hi, I'm a <span className="primary-color">#{animatedText}</span>{" "}
-      </h1>
+      <div className="hero__info">
+        <h1 className="heading">
+          Hi, I'm  <span className="primary-color">Brian</span>{" "}
+        </h1>
+        <p className="paragraph">
+          I develop <span className="primary-color">{animatedText}</span>
+        </p>
+
+      </div>
       <div className="hero__img-container">
         <div className="hexagon">
           <div className="hexagon-inner">
