@@ -17,6 +17,11 @@ import netcore from "./images/tech/netcore.png";
 import nodejs from "./images/tech/nodejs.png";
 import reactjs from "./images/tech/reactjs.png";
 import typescript from "./images/tech/typescript.png";
+import sql from './images/tech/SQL.png';
+
+import ezzybooks from './images/companies/ezzybooks.png';
+import selltime from './images/companies/selltime.png';
+import upwork from './images/companies/upwork.png';
 
 export {
   hero_bg,
@@ -37,4 +42,8 @@ export {
   netcore,
   nodejs,
   typescript,
+  sql,
+  ezzybooks,
+  selltime,
+  upwork
 };
