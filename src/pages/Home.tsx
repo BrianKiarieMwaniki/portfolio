@@ -15,18 +15,18 @@ const Home = (props: Props) => {
       <>
         <Hero />
       </>
-
       <>
         <AboutMe />
       </>
       <>
         <WorkExperience />
       </>
-
-      <section>
+      <>
+        <Skills />
+      </>
+      <>
         <Projects />
-      </section>
-
+      </>
       <section>
         Services:
         <ul>
@@ -37,9 +37,6 @@ const Home = (props: Props) => {
             each service and how you can help potential clients or employers.
           </li>
         </ul>
-      </section>
-      <section>
-        <Skills />
       </section>
       <section>
         <Contact />

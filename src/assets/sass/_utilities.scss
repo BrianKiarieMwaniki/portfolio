@@ -5,8 +5,8 @@
 .hexagon {
   display: inline-block;
   position: relative;
-  width: 100px; /* Adjust based on your image size */
-  height: 100px; /* Height to width ratio for a perfect hexagon (sqrt(3)/2 * 100%) */
+  width: 10rem;
+  height: 10rem; /* Height to width ratio for a perfect hexagon (sqrt(3)/2 * 100%) */
   box-sizing: border-box;
 
   &-inner {
