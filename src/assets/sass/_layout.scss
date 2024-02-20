@@ -137,12 +137,12 @@
     gap: 2rem;
 
     & .hexagon {
-      height: 25rem;
-      width: 25rem;
+      height: 20rem;
+      width: 20rem;
 
       @include respond(tab-port) {
-        height: 20rem;
-        width: 20rem;
+        height: 18rem;
+        width: 18rem;
       }
 
       &-inner {
@@ -153,7 +153,7 @@
 
   &__card {
     & img {
-      width: 12rem;
+      width: 10rem;
     }
 
     & h1 {

@@ -1,8 +1,10 @@
 import {
   azure,
+  backendDev,
   blazor,
   csharp,
   css,
+  desktopDev,
   ezzybooks,
   git,
   html,
@@ -14,7 +16,23 @@ import {
   sql,
   typescript,
   upwork,
+  webDev,
 } from "../assets";
+
+const services = [
+  {
+    title: "Web <br /> Development",
+    icon: webDev
+  },
+  {
+    title: "Desktop <br /> Development",
+    icon:desktopDev
+  },
+  {
+    title: "Back-end <br /> Services",
+    icon: backendDev
+  }
+]
 
 const experiences = [
   {
@@ -117,4 +135,4 @@ const skills = [
   }
 ];
 
-export { experiences, skills };
+export {services, experiences, skills };
