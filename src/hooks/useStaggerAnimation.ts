@@ -20,6 +20,7 @@ export const useStaggerAnimation = ({
   staggerEase= undefined
 }: UseStaggerAnimationProps) => {
   const [scope, animate] = useAnimate();
+  
   const staggerItems = stagger(0.5, { startDelay: 0 , ease: staggerEase}, );
 
 
