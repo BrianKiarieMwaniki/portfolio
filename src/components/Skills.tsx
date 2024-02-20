@@ -22,12 +22,12 @@ const SkillCard = ({ name, icon }: SkillCardProps) => {
 };
 
 const Skills = () => {
-  const { ref, isInView } = useScrollAnimation({ triggerOnce: false });
+  const { ref, isInView } = useScrollAnimation({ triggerOnce: true });
   const scope = useStaggerAnimation({
     isInView,
     element: "article",
     type: "spring",
-    bounce: 2.5,
+    bounce: 1.5,
     stiffness: 200,
     staggerEase: [0.01, 0.94, 1, 0.81],
   });
