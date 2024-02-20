@@ -1,10 +1,30 @@
 import { useScrollAnimation, useStaggerAnimation } from "../hooks";
+import parse from 'html-react-parser';
 import { motion } from "framer-motion";
-import { backendDev, desktopDev, webDev } from "../assets";
+import { services } from "../constants";
+
+type ServiceCardProps = {
+  index:number;
+  title: string;
+  icon:string;
+}
+const ServiceCard = ({index, title, icon}:ServiceCardProps) =>{
+  return (
+    <article
+      className="about__card hexagon">
+      <div className="hexagon-inner">
+        <img src={icon} alt="desktop development" />
+        <h1>          
+          {parse(title)}
+        </h1>
+      </div>
+    </article>
+  );
+}
 
 const AboutMe = () => {
   const { ref, isInView } = useScrollAnimation();
-  const scope = useStaggerAnimation({ isInView, element: "article" });
+  const scope = useStaggerAnimation({isInView, element: "article"});
 
   return (
     <div ref={ref} id="aboutme">
@@ -41,31 +61,10 @@ const AboutMe = () => {
           transition={{ staggerChildren: 0.5, delayChildren: 0.25 }}
           className="about__cards"
         >
-          <article className="about__card hexagon">
-            <div className="hexagon-inner">
-              <img src={webDev} alt="web development" />
-              <h1>
-                Web <br /> Developement
-              </h1>
-            </div>
-          </article>
-          <article className="about__card    hexagon">
-            <div className="hexagon-inner">
-              <img src={desktopDev} alt="desktop development" />
-              <h1>
-                Desktop <br /> Developement
-              </h1>
-            </div>
-          </article>
-          <article className="about__card hexagon">
-            <div className="hexagon-inner">
-              <img src={backendDev} alt="backend services development" />
-              <h1>
-                Backend <br /> Services
-              </h1>
-            </div>
-          </article>
-        </motion.div>
+          {services.map((service, index) => (
+            <ServiceCard key={service.title} index={index} {...service} />
+          ))}
+        </motion.div>        
       </section>
     </div>
   );
