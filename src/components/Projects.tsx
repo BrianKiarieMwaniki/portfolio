@@ -86,7 +86,7 @@ const Projects = () => {
         solutions
       </p>
 
-      <div className="project__cards">
+      <div className="projects__cards">
         {projects.map((project, index) => (
           <ProjectCard index={index} {...project} />
         ))}
