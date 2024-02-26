@@ -288,3 +288,21 @@
     }
   }
 }
+
+.projects{
+  display:flex;
+  flex-direction: column;
+
+  &__cards{
+    border:1px solid red;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:2rem;
+
+    @include respond(tab-port){
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

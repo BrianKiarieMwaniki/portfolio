@@ -23,6 +23,8 @@ import ezzybooks from './images/companies/ezzybooks.png';
 import selltime from './images/companies/selltime.png';
 import upwork from './images/companies/upwork.png';
 
+
+import weatherApp from './images/projects/weatherApp.png';
 export {
   hero_bg,
   heroDp,
@@ -45,5 +47,6 @@ export {
   sql,
   ezzybooks,
   selltime,
-  upwork
+  upwork,
+  weatherApp
 };

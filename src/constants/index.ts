@@ -16,23 +16,24 @@ import {
   sql,
   typescript,
   upwork,
+  weatherApp,
   webDev,
 } from "../assets";
 
 const services = [
   {
     title: "Web <br /> Development",
-    icon: webDev
+    icon: webDev,
   },
   {
     title: "Desktop <br /> Development",
-    icon:desktopDev
+    icon: desktopDev,
   },
   {
     title: "Back-end <br /> Services",
-    icon: backendDev
-  }
-]
+    icon: backendDev,
+  },
+];
 
 const experiences = [
   {
@@ -43,8 +44,8 @@ const experiences = [
     date: "Nov 2023 - Present",
     points: [
       "Developed custom software solutions for diverse client needs, emphasizing modular and maintainable code.",
-      "Worked closely with clients to define requirements, leading to a 100% project success rate based on client feedback.",
-      "Reviewed and optimized existing codebases, enhancing application performance and maintainability for several clients.",
+      "Worked closely with clients to define requirements.",
+      "Reviewed and optimized existing codebases, enhancing application performance and maintainability for several clients."
     ],
   },
   {
@@ -55,8 +56,8 @@ const experiences = [
     date: "July 2023 - Present",
     points: [
       "Developing and managing web application development using Asp.Net Core MVC, focusing on modular and scalable code design.",
-      "Collaborating with cross-functional teams to deliver high-quality products, resulting in a 15% increase in customer satisfaction.",
-      "Led a team initiative to standardize responsive design practices, improving consistency across projects.",
+      "Collaborating with cross-functional teams to deliver high-quality products.",
+      "Led a team initiative to standardize responsive design practices, improving consistency across projects."
     ],
   },
   {
@@ -69,7 +70,7 @@ const experiences = [
       "Developed and maintained desktop applications using the .NET Framework and SQL.",
       "Integrated applications with third-party APIs, enhancing functionality and user options.",
       "Wrote and maintained hardware integration modules.",
-      "Provided technical support and expertise to customer support teams.",
+      "Provided technical support and expertise to customer support teams."
     ],
   },
   {
@@ -80,8 +81,8 @@ const experiences = [
     date: "June 2021 - July 2022",
     points: [
       "Led the development of a dynamic web rendering system using Blazor and .NET Core, enhancing user experience and system efficiency.",
-      "Implemented responsive web design principles, achieving 95% compatibility across major browsers.",
-      "Actively contributed to code reviews, focusing on improving code quality and maintainability.",
+      "Implemented responsive web design principles",
+      "Actively contributed to code reviews, focusing on improving code quality and maintainability."
     ],
   },
 ];
@@ -104,35 +105,63 @@ const skills = [
     icon: netcore,
   },
   {
-    name:"Javascript",
-    icon:javascript
+    name: "Javascript",
+    icon: javascript,
   },
   {
-    name:"Typescript",
-    icon:typescript
+    name: "Typescript",
+    icon: typescript,
   },
   {
-    name:"React",
-    icon: reactjs
-  },{
+    name: "React",
+    icon: reactjs,
+  },
+  {
     name: "Blazor",
-    icon:blazor
+    icon: blazor,
   },
   {
-    name:"Azure",
-    icon:azure
+    name: "Azure",
+    icon: azure,
   },
   {
-    name:"NodeJs",
-    icon:nodejs
+    name: "NodeJs",
+    icon: nodejs,
   },
   {
     name: "SQL",
-    icon:sql
-  },{
-    name:"Git",
-    icon:git
-  }
+    icon: sql,
+  },
+  {
+    name: "Git",
+    icon: git,
+  },
 ];
 
-export {services, experiences, skills };
+const projects = [
+  {
+    name: "Weather App",
+    description:
+      "This intuitive weather app provides real-time weather updates tailored to the user's current location, ensuring up-to-date information at a glance. Additionally, it offers the flexibility to retrieve weather forecasts for any searched location, delivering a personalized and comprehensive meteorological experience.",
+    tags: [
+      {
+        name: "react",
+        color: "#61DAFB",
+      },
+      {
+        name: "rapid api",
+        color: "#00FF00",
+      },
+      {
+        name: "scss",
+        color: "#C6538C",
+      },
+    ],
+    image: weatherApp,
+    codeLink: "https://github.com/BrianKiarieMwaniki/weatherapp",
+    siteLink: "https://weatherapp-ruby-eight.vercel.app/",
+    published:true
+  },
+];
+
+export { services, experiences, skills,projects };
