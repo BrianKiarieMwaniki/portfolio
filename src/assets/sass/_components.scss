@@ -61,7 +61,7 @@
 
 .project-card {
   min-width: 22rem;
-  width: 36rem;
+  width: 40rem;
   
   &__content{
     width: 100%;
@@ -109,6 +109,10 @@
     font-size:1.4rem;
     color:rgba(var(--color-black), 0.75);
     margin-bottom: 0.8rem;
+
+    @include respond(tab-port){
+      font-size:1.5rem;
+    }
   }
 
   &__tags{
