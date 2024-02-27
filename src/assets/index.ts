@@ -19,6 +19,8 @@ import reactjs from "./images/tech/reactjs.png";
 import typescript from "./images/tech/typescript.png";
 import sql from './images/tech/SQL.png';
 
+import phone from './images/phone.png';
+
 import ezzybooks from './images/companies/ezzybooks.png';
 import selltime from './images/companies/selltime.png';
 import upwork from './images/companies/upwork.png';
@@ -48,5 +50,6 @@ export {
   ezzybooks,
   selltime,
   upwork,
-  weatherApp
+  weatherApp,
+  phone
 };
