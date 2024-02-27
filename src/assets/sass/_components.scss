@@ -186,6 +186,7 @@
   }
 
   &__btn{
+    background-color: rgb(var(--color-accent));
     @include respond(phone){
       width: 100%;
     }
