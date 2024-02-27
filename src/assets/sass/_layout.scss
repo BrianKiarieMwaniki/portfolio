@@ -256,10 +256,10 @@
     gap: 2rem;
 
     & .hexagon {
-      height:13rem;
-      width:13rem;
+      height: 13rem;
+      width: 13rem;
 
-      @include respond(phone){
+      @include respond(phone) {
         height: 12rem;
         width: 12rem;
       }
@@ -289,20 +289,54 @@
   }
 }
 
-.projects{
-  display:flex;
+.projects {
+  display: flex;
   flex-direction: column;
 
-  &__cards{
+  &__cards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap:2rem;
+    gap: 2rem;
     overflow: hidden;
     justify-content: center;
 
-    @include respond(tab-port){
+    @include respond(tab-port) {
       align-items: center;
     }
+  }
+}
+
+.contact {
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+
+ @include respond(tab-land){
+  flex-direction: column-reverse;
+ }
+
+  &__col-1 {
+    flex: 0.75;
+  }
+
+  &__col-2 {
+    flex: 1 1 0%;
+    height: 50rem;
+
+    @include respond(tab-land) {
+      height: auto;
+    }
+
+    @include respond(tab-port) {
+      height: 40rem;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
   }
 }

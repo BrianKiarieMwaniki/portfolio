@@ -1,3 +1,4 @@
+import { StarsCanvas } from "../components/canvas";
 import {
   Hero,
   AboutMe,
@@ -38,9 +39,10 @@ const Home = (props: Props) => {
           </li>
         </ul>
       </section>
-      <section>
+      <div className="relative z-0">
         <Contact />
-      </section>
+        <StarsCanvas/>
+      </div>
     </>
   );
 };
