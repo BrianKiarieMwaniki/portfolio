@@ -71,10 +71,19 @@
   padding-top: 2rem;
 }
 
-.relative{
+.relative {
   position: relative;
 }
 
-.z-0{
+.z-0 {
   z-index: 0;
+}
+
+.dots {
+  display: inline-block;
+  width: 10px;
+  overflow: hidden;
+  vertical-align: bottom;
+  animation: ellipsis 1.5s infinite;
+  font-size:1.5rem;
 }

@@ -19,3 +19,12 @@
     transform: translate(0);
   }
 }
+
+@keyframes ellipsis {
+    0% { width: 0; }
+    25% { width: 4px; }
+    50% { width: 8px; }
+    75% { width: 12px; }
+    100% { width: 16px; }
+}
+

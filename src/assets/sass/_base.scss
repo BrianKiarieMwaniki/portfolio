@@ -7,6 +7,10 @@
   --color-white: 255, 255, 255;
   --color-dark-grey:134,134,134;
   --shadow-1:rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  --toastify-color-progress-success: rgb(var(--color-white))!important;
+  --toastify-color-progress-error: rgb(var(--color-white))!important;
+  --toastify-text-color-success: rgb(var(--color-white)) !important;
+  --toastify-text-color-error: rgb(var(--color-white)) !important;
 }
 
 * {

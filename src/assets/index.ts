@@ -25,6 +25,7 @@ import ezzybooks from './images/companies/ezzybooks.png';
 import selltime from './images/companies/selltime.png';
 import upwork from './images/companies/upwork.png';
 
+import emailSent from './images/email-sent.png';
 
 import weatherApp from './images/projects/weatherApp.png';
 export {
@@ -51,5 +52,6 @@ export {
   selltime,
   upwork,
   weatherApp,
-  phone
+  phone,
+  emailSent
 };

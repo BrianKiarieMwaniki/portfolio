@@ -1,7 +1,44 @@
+.Toastify__toast-theme--colored {
+  &__toast--success {
+    background-color: rgb(var(--color-primary)) !important;
+  }
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--error {
+  background: rgba(226, 10, 39, 0.867) !important;
+}
+
+.Toastify {
+  &__toast {
+    &-container{
+      width:max-content !important;
+      max-width: var(--toastify-toast-width) !important;
+    }
+    &-body {
+      font-size: 1.5rem;
+      font-family: inherit !important;
+      font-weight: 400 !important;      
+    }
+    &-icon {
+      width: max-content !important;
+      max-width: 2rem !important;
+    }
+    &--success {
+      background: rgb(var(--color-primary)) !important;
+      color: rgb(var(--color-white)) !important;
+    }
+    &--error{
+      background: red !important;     
+      color: rgb(var(--color-white)) !important;
+    }
+  }
+}
+
 .btn {
   &,
   &:link,
   &:visited {
+    min-width: 15rem;
     font-size: 1.6rem;
     text-decoration: none;
     padding: 1.5rem 4rem;
@@ -62,13 +99,13 @@
 .project-card {
   min-width: 22rem;
   width: 40rem;
-  
-  &__content{
+
+  &__content {
     width: 100%;
-    position:relative;    
+    position: relative;
   }
 
-  &__img{
+  &__img {
     object-fit: cover;
     width: 100%;
     border-radius: 1.6rem;
@@ -95,105 +132,113 @@
     }
 
     &:hover {
-      fill:rgb(var(--color-primary));
+      fill: rgb(var(--color-primary));
     }
   }
 
-  &__name{
-    font-size:2.4rem;
-    font-weight:700;
+  &__name {
+    font-size: 2.4rem;
+    font-weight: 700;
     letter-spacing: normal;
   }
 
-  &__description{
-    font-size:1.4rem;
-    color:rgba(var(--color-black), 0.75);
+  &__description {
+    font-size: 1.4rem;
+    color: rgba(var(--color-black), 0.75);
     margin-bottom: 0.8rem;
 
-    @include respond(tab-port){
-      font-size:1.5rem;
+    @include respond(tab-port) {
+      font-size: 1.5rem;
     }
   }
 
-  &__tags{
+  &__tags {
     display: flex;
     flex-direction: row;
-    flex-wrap:wrap;
-    gap:0.8rem;
-    margin-top:1.4rem;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.4rem;
   }
 
-  &__tag{
+  &__tag {
     font-size: 1.4rem;
   }
 }
 
-.form{
-  &__group{  
-
-    &:not(:last-child){
+.form {
+  &__group {
+    &:not(:last-child) {
       margin-bottom: 2rem;
     }
   }
 
-  &__input{
-    font-size:1.5rem;
+  &__input {
+    font-size: 1.5rem;
     font-family: inherit;
-    color:inherit;
+    color: inherit;
     padding: 1.5rem 2rem;
     border-radius: 2px;
     background-color: rgba(var(--color-white), 0.7);
-    border:none;
+    border: none;
     border-bottom: 3px solid transparent;
     width: 90%;
     display: block;
-    caret-color: rgb(var(--color-primary));    
-    transition: all .3s;
+    caret-color: rgb(var(--color-primary));
+    transition: all 0.3s;
 
-    @include respond(tab-port){
+    @include respond(tab-port) {
       width: 100%;
     }
 
-    &:focus{
+    &:focus {
       outline: none;
       // box-shadow: 0 1rem 2rem rgba(var(--color-black), 0.1);
       box-shadow: var(--shadow-1);
       border-bottom: 3px solid rgb(var(--color-primary));
     }
 
-    &:focus:invalid{
+    &:focus:invalid {
       border-bottom: 3px solid rgb(var(--color-accent));
     }
 
     &::-webkit-input-placeholder,
-    &::placeholder{
-      color:rgb(var(--color-dark-grey));
+    &::placeholder {
+      color: rgb(var(--color-dark-grey));
     }
   }
 
-  &__label{
-    font-size:1.2rem;
+  &__label {
+    font-size: 1.2rem;
     font-weight: 700;
-    margin-bottom:0.7rem;
+    margin-bottom: 0.7rem;
     display: block;
-    transition: all .3s;
+    transition: all 0.3s;
   }
 
-  &__input:placeholder-shown + &__label{
+  &__input:placeholder-shown + &__label {
     opacity: 0;
     visibility: hidden;
     transform: translateY(4rem);
   }
 
-  &__btn{
+  &__btn {
     background-color: rgb(var(--color-accent));
-    @include respond(phone){
+    transition: background .8s ease .5s;
+    @include respond(phone) {
       width: 100%;
+    }
+
+    &:hover{
+      background:radial-gradient(circle at center,rgb(var(--color-secondary)), rgb(var(--color-primary)));
+    }
+    &:disabled{
+      background:radial-gradient(circle at center,rgba(var(--color-dark-grey), 0.5), rgba(var(--color-dark-grey), 0.75));
+      box-shadow: none;
     }
   }
 }
 
-.stars-canvas{
+.stars-canvas {
   position: absolute;
   inset: 0px;
   width: 100%;
