@@ -1,8 +1,9 @@
-import { motion } from "framer-motion";
+import { AnimationControls, motion } from "framer-motion";
 import React, { FC } from "react";
 import { Tilt } from "react-tilt";
-import { slideIn } from "../utils/motion";
+import { fadeIn, slideIn, textVariant } from "../utils/motion";
 import { projects } from "../constants";
+import { useScrollAnimation } from "../hooks";
 
 type ProjectCardProps = {
   index: number;
@@ -13,6 +14,7 @@ type ProjectCardProps = {
   codeLink: string;
   siteLink: string;
   published: boolean;
+  animation: AnimationControls;
 };
 const ProjectCard: FC<ProjectCardProps> = ({
   index,
@@ -23,9 +25,19 @@ const ProjectCard: FC<ProjectCardProps> = ({
   codeLink,
   siteLink,
   published,
+  animation,
 }) => {
   return (
-    <motion.div variants={slideIn("up", "spring", index * 0.5, 0.75)}>
+    <motion.div
+      variants={slideIn({
+        direction: "up",
+        type: "tween",
+        delay: index * 0.5,
+        duration: 0.75,
+      })}
+      initial="hidden"
+      animate={animation}
+    >
       <Tilt
         options={{ max: 45, scale: 1, speed: 450 }}
         className="project-card"
@@ -55,6 +67,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
           <div className="project-card__tags">
             {tags.map((tag, index) => (
               <p
+                key={index}
                 className="project-card__tag"
                 style={{ color: `${tag.color}` }}
               >
@@ -69,11 +82,25 @@ const ProjectCard: FC<ProjectCardProps> = ({
 };
 
 const Projects = () => {
+  const { ref, animation } = useScrollAnimation();
+
   return (
-    <section className="section projects">
-      <h4 className="sub-heading">My work</h4>
-      <h1 className="heading">Projects.</h1>
-      <p className="paragraph">
+    <section ref={ref} className="section projects">
+      <motion.div variants={textVariant()} initial="hidden" animate={animation}>
+        <h4 className="sub-heading">My work</h4>
+        <h1 className="heading">Projects.</h1>
+      </motion.div>
+      <motion.p
+        variants={fadeIn({
+          direction: "down",
+          type: "tween",
+          duration: 0.2,
+          delay: 0.1,
+        })}
+        initial="hidden"
+        animate={animation}
+        className="paragraph"
+      >
         Welcome to the showcase of my professional journey, where each project
         is a testament to my technical prowess and problem-solving capabilities.
         Within this portfolio, you'll find a curated selection of my work, each
@@ -84,11 +111,16 @@ const Projects = () => {
         navigating and resolving complex challenges. Dive in to see how my
         expertise is put into action, creating impactful and innovative
         solutions
-      </p>
+      </motion.p>
 
       <div className="projects__cards">
         {projects.map((project, index) => (
-          <ProjectCard index={index} {...project} />
+          <ProjectCard
+            key={index}
+            index={index}
+            animation={animation}
+            {...project}
+          />
         ))}
       </div>
     </section>

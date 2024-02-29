@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "../hooks";
-import { slideIn } from "../utils/motion";
+import { slideIn, textVariant } from "../utils/motion";
 import { PhoneCanvas } from "./canvas";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
@@ -69,76 +69,99 @@ const Contact = () => {
 
   return (
     <section ref={ref} className="section contact">
-      <motion.div
-        variants={slideIn("right", "tween", 0.3, 0.6)}
-        initial="hidden"
-        animate={animation}
-        className="contact__col-1"
-      >
-        <h4 className="sub-heading">Get in Touch</h4>
-        <h1 className="heading">Contact.</h1>
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className="contact__form form"
+      <div className="contact__col-1">
+        <motion.div
+          variants={textVariant()}
+          initial="hidden"
+          animate={animation}
         >
-          <div className="form__group">
-            <label htmlFor="name" className="form__label">
-              Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              placeholder="What's your name?"
-              className="form__input"
-              required
-            />
-          </div>
-          <div className="form__group">
-            <label htmlFor="email" className="form__label">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              placeholder="What's your email address?"
-              className="form__input"
-              required
-            />
-          </div>
-          <div className="form__group">
-            <label htmlFor="message" className="form__label">
-              Message
-            </label>
-            <textarea
-              rows={7}
-              name="message"
-              value={form.message}
-              onChange={handleChange}
-              placeholder="Tell me something"
-              className="form__input"
-              required
-            />
-          </div>
-          <div className="form__group">
-            <button
-              type="submit"
-              className={`btn form__btn btn--primary ${
-                isLoading ? "" : "btn--animated"
-              } `}
-              disabled={isLoading}
-            >
-              {isLoading ? <p>Sending<span className="dots">...</span> </p>: "Send"}
-            </button>
-          </div>
-        </form>
-      </motion.div>
+          <h4 className="sub-heading">Get in Touch</h4>
+          <h1 className="heading">Contact.</h1>
+        </motion.div>
+        <motion.div
+          variants={slideIn({
+            direction: "right",
+            type: "tween",
+            delay: 0.3,
+            duration: 0.6,
+          })}
+          initial="hidden"
+          animate={animation}
+        >
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className="contact__form form"
+          >
+            <div className="form__group">
+              <label htmlFor="name" className="form__label">
+                Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                placeholder="What's your name?"
+                className="form__input"
+                required
+              />
+            </div>
+            <div className="form__group">
+              <label htmlFor="email" className="form__label">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                placeholder="What's your email address?"
+                className="form__input"
+                required
+              />
+            </div>
+            <div className="form__group">
+              <label htmlFor="message" className="form__label">
+                Message
+              </label>
+              <textarea
+                rows={7}
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                placeholder="Tell me something"
+                className="form__input"
+                required
+              />
+            </div>
+            <div className="form__group">
+              <button
+                type="submit"
+                className={`btn form__btn btn--primary ${
+                  isLoading ? "" : "btn--animated"
+                } `}
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <p>
+                    Sending<span className="dots">...</span>{" "}
+                  </p>
+                ) : (
+                  "Send"
+                )}
+              </button>
+            </div>
+          </form>
+        </motion.div>
+      </div>
       <motion.div
-        variants={slideIn("left", "tween", 0.3, 0.5)}
+        variants={slideIn({
+          direction: "left",
+          type: "tween",
+          delay: 0.3,
+          duration: 0.5,
+        })}
         initial="hidden"
         animate={animation}
         className="contact__col-2"
