@@ -1,30 +1,34 @@
-import { useScrollAnimation, useStaggerAnimation } from "../hooks";
-import parse from 'html-react-parser';
-import { motion } from "framer-motion";
+import { useScrollAnimation } from "../hooks";
+import parse from "html-react-parser";
+import { AnimationControls, motion } from "framer-motion";
 import { services } from "../constants";
+import { slideIn } from "../utils/motion";
 
 type ServiceCardProps = {
-  index:number;
+  index: number;
   title: string;
-  icon:string;
-}
-const ServiceCard = ({index, title, icon}:ServiceCardProps) =>{
+  icon: string;
+  animation:AnimationControls
+};
+const ServiceCard = ({ index, title, icon, animation }: ServiceCardProps) => {
   return (
-    <article
-      className="about__card hexagon">
+    <motion.article
+      variants={slideIn("right", "tween", 0.5 * index, 0.75)}
+      initial="hidden"
+      animate={animation}
+      className="about__card hexagon"
+    >
       <div className="hexagon-inner">
         <img src={icon} alt="desktop development" />
-        <h1>          
-          {parse(title)}
-        </h1>
+        <h1>{parse(title)}</h1>
       </div>
-    </article>
+    </motion.article>
   );
-}
+};
 
 const AboutMe = () => {
-  const { ref, isInView } = useScrollAnimation();
-  const scope = useStaggerAnimation({isInView, element: "article"});
+  const { ref,animation } = useScrollAnimation();
+ 
 
   return (
     <div ref={ref} id="aboutme">
@@ -56,15 +60,11 @@ const AboutMe = () => {
           pursuit of quality.
         </p>
 
-        <motion.div
-          ref={scope}
-          transition={{ staggerChildren: 0.5, delayChildren: 0.25 }}
-          className="about__cards"
-        >
+        <div className="about__cards">
           {services.map((service, index) => (
-            <ServiceCard key={service.title} index={index} {...service} />
+            <ServiceCard key={service.title} index={index} animation={animation} {...service} />
           ))}
-        </motion.div>        
+        </div>
       </section>
     </div>
   );
