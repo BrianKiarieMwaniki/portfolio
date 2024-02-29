@@ -27,8 +27,8 @@ const Skills = () => {
     isInView,
     element: "article",
     type: "spring",
-    bounce: 1.5,
-    stiffness: 200,
+    bounce: 1.25,
+    stiffness: 100,
     staggerEase: [0.01, 0.94, 1, 0.81],
   });
   return (

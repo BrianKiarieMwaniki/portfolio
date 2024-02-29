@@ -1,6 +1,8 @@
 import { Easing, stagger, useAnimate } from "framer-motion";
 import { useEffect } from "react";
 
+const staggerItems = stagger(0.5, { startDelay: 0.15, ease: "easeIn" });
+
 
 type UseStaggerAnimationProps = {
   isInView: boolean;
@@ -16,12 +18,11 @@ export const useStaggerAnimation = ({
   element,
   type = "tween",
   bounce = 0,
-  stiffness= 100,
-  staggerEase= undefined
+  stiffness= 100
 }: UseStaggerAnimationProps) => {
   const [scope, animate] = useAnimate();
   
-  const staggerItems = stagger(0.5, { startDelay: 0 , ease: staggerEase}, );
+  
 
 
   useEffect(() => {
@@ -34,10 +35,10 @@ export const useStaggerAnimation = ({
         stiffness: stiffness,
         bounce: bounce,
         duration: 0.5,
-        delay: isInView ? staggerItems : 0,
+        delay:  isInView? staggerItems : 0,
       }
     );
-  }, [isInView, element, bounce, stiffness, type, animate,staggerItems]);
+  }, [isInView, element, bounce, stiffness, type, animate]);
 
   return scope;
 };
