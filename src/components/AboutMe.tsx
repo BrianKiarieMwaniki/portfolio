@@ -2,18 +2,23 @@ import { useScrollAnimation } from "../hooks";
 import parse from "html-react-parser";
 import { AnimationControls, motion } from "framer-motion";
 import { services } from "../constants";
-import { slideIn } from "../utils/motion";
+import { slideIn, textVariant } from "../utils/motion";
 
 type ServiceCardProps = {
   index: number;
   title: string;
   icon: string;
-  animation:AnimationControls
+  animation: AnimationControls;
 };
 const ServiceCard = ({ index, title, icon, animation }: ServiceCardProps) => {
   return (
     <motion.article
-      variants={slideIn("right", "tween", 0.5 * index, 0.75)}
+      variants={slideIn({
+        direction: "right",
+        type: "tween",
+        delay: 0.5 * index,
+        duration: 0.75,
+      })}
       initial="hidden"
       animate={animation}
       className="about__card hexagon"
@@ -27,14 +32,19 @@ const ServiceCard = ({ index, title, icon, animation }: ServiceCardProps) => {
 };
 
 const AboutMe = () => {
-  const { ref,animation } = useScrollAnimation();
- 
+  const { ref, animation } = useScrollAnimation();
 
   return (
     <div ref={ref} id="aboutme">
       <section className="section about">
-        <h4 className="sub-heading">Introduction</h4>
-        <h1 className="heading">Overview.</h1>
+        <motion.div
+          variants={textVariant()}
+          initial="hidden"
+          animate={animation}
+        >
+          <h4 className="sub-heading">Introduction</h4>
+          <h1 className="heading">Overview.</h1>
+        </motion.div>
         <p className="paragraph">
           As a Full Stack Developer specializing in web, desktop, and backend
           services, I am deeply passionate about solving complex problems and
@@ -62,7 +72,12 @@ const AboutMe = () => {
 
         <div className="about__cards">
           {services.map((service, index) => (
-            <ServiceCard key={service.title} index={index} animation={animation} {...service} />
+            <ServiceCard
+              key={service.title}
+              index={index}
+              animation={animation}
+              {...service}
+            />
           ))}
         </div>
       </section>
