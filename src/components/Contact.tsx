@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { useScrollAnimation } from "../hooks";
 import { slideIn, textVariant } from "../utils/motion";
 import { PhoneCanvas } from "./canvas";
-import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
 import { emailSent } from "../assets";
+import { sendEmail } from "../services/sendEmailService";
 
 const Contact = () => {
   const { ref, animation } = useScrollAnimation();
@@ -24,47 +24,74 @@ const Contact = () => {
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsLoading(true);
 
-    emailjs
-      .send(
-        `${process.env.REACT_APP_EMAIL_JS_SERVICE_ID}`,
-        `${process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID}`,
-        {
-          client_name: form.name,
-          client_email: form.email,
-          message: form.message,
-        },
-        { publicKey: `${process.env.REACT_APP_EMAIL_JS_PUBLIC_KEY}` }
-      )
-      .then(
-        () => {
-          setIsLoading(false);
-          //set success toast message
-          toast.success("Message sent successfully", {
-            icon: ({ theme, type }) => (
-              <img
-                src={emailSent}
-                style={{ marginRight: "0.25rem" }}
-                width={35}
-                height={35}
-                alt="email sent"
-              />
-            ),
-          });
-          setForm({ name: "", email: "", message: "" });
-        },
-        (error) => {
-          setIsLoading(false);
-          console.log(error);
-          //set error toast message
-          toast.error("Oops! Failed to sent. Please try again.", {
-            icon: false,
-          });
-        }
-      );
+    try {
+      const response = await sendEmail({
+        client_email: form.email,
+        client_name: form.name,
+        message: form.message,
+      });
+  
+      console.log(response);
+  
+      if (response.status === 200) {
+        toast.success("Message sent successfully", {
+          icon: ({ theme, type }) => (
+            <img
+              src={emailSent}
+              style={{ marginRight: "0.25rem" }}
+              width={35}
+              height={35}
+              alt="email sent"
+            />
+          ),
+        });
+      }
+    }finally {
+      setIsLoading(false);
+    }
+    
+
+    // emailjs
+    //   .send(
+    //     `${process.env.REACT_APP_EMAIL_JS_SERVICE_ID}`,
+    //     `${process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID}`,
+    //     {
+    //       client_name: form.name,
+    //       client_email: form.email,
+    //       message: form.message,
+    //     },
+    //     { publicKey: `${process.env.REACT_APP_EMAIL_JS_PUBLIC_KEY}` }
+    //   )
+    //   .then(
+    //     () => {
+    //       setIsLoading(false);
+    //       //set success toast message
+    //       toast.success("Message sent successfully", {
+    //         icon: ({ theme, type }) => (
+    //           <img
+    //             src={emailSent}
+    //             style={{ marginRight: "0.25rem" }}
+    //             width={35}
+    //             height={35}
+    //             alt="email sent"
+    //           />
+    //         ),
+    //       });
+    //       setForm({ name: "", email: "", message: "" });
+    //     },
+    //     (error) => {
+    //       setIsLoading(false);
+    //       console.log(error);
+    //       //set error toast message
+    //       toast.error("Oops! Failed to sent. Please try again.", {
+    //         icon: false,
+    //       });
+    //     }
+    //   );
   };
 
   return (
