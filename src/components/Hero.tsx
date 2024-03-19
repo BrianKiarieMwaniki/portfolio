@@ -17,9 +17,6 @@ const Hero: FC = (props: Props) => {
   });
   return (
     <section className="hero" style={{ backgroundImage: `url(${hero_bg})` }}>
-      <div className="hero__logo-box">
-        <img src={logo} alt="logo" className="hero__logo" />
-      </div>
       <div className="hero__info">
         <h1 className="heading">
           Hi, I'm  <span className="primary-color">Brian</span>{" "}

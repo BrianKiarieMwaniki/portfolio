@@ -85,7 +85,7 @@ const Projects = () => {
   const { ref, animation } = useScrollAnimation();
 
   return (
-    <section ref={ref} className="section projects">
+    <section ref={ref} className="section projects" id="projects">
       <motion.div variants={textVariant()} initial="hidden" animate={animation}>
         <h4 className="sub-heading">My work</h4>
         <h1 className="heading">Projects.</h1>

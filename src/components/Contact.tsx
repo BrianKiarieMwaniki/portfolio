@@ -56,7 +56,7 @@ const Contact = () => {
   };
 
   return (
-    <section ref={ref} className="section contact">
+    <section ref={ref} className="section contact" id="contactme">
       <div className="contact__col-1">
         <motion.div
           variants={textVariant()}

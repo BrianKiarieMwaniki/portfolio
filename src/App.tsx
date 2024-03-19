@@ -1,15 +1,32 @@
 import { ToastContainer } from "react-toastify";
-import {Home,NotFound} from "./pages";
+import { Home, NotFound } from "./pages";
 import "react-toastify/dist/ReactToastify.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { Navbar } from "./components";
 function App() {
+  const Layout = () => {
+    return (
+      <>
+        <Navbar />
+        <Outlet />
+      </>
+    );
+  };
+
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Home />,
-      errorElement:<NotFound/>
+      element: <Layout />,
+      errorElement: <NotFound />,
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+      ],
     },
   ]);
+
   return (
     <div className="App">
       <ToastContainer
