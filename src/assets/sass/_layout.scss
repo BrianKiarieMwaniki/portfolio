@@ -210,10 +210,10 @@
 }
 
 .section {
-  padding: 4rem 8rem;
+  padding: 10rem 8rem;
 
   @include respond(phone) {
-    padding: 2rem;
+    padding: 6rem 2rem;
   }
 }
 

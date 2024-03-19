@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { heroDp, hero_bg, logo } from "../assets";
+import { heroDp, hero_bg } from "../assets";
 import { useDispatchSectionInView, useScrollAnimation, useTypewriter } from "../hooks";
 
 type Props = {};

@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { logo } from "../assets";
 import { useSelector } from "react-redux";
 import { navLinks } from "../constants";
-
 interface AppState {
   scroll: {
     currentSection: string;
@@ -11,6 +10,7 @@ interface AppState {
 }
 
 const Navbar = () => {
+  const navbarRef = useRef(null);
   const [isCollapsed, setIsCollapse] = useState(false);
   const [active, setActive] = useState("");
   const currentSection = useSelector(
@@ -19,16 +19,17 @@ const Navbar = () => {
 
   useEffect(() => {
     setActive(currentSection);
-  }, [currentSection]);
-
-  console.log(currentSection);
+  }, [currentSection, active]);
 
   return (
-    <nav className="navbar">
+    <nav className="navbar" ref={navbarRef}>
       <Link
         to="/"
         className="navbar__brand"
-        onClick={() => window.scrollTo(0, 0)}
+        onClick={() => {
+          setActive("");
+          window.scrollTo(0, 0);
+        }}
       >
         <img src={logo} alt="logo" className="navbar__brand--logo" />
       </Link>
@@ -49,7 +50,6 @@ const Navbar = () => {
               key={link.id}
               className={`${active === link.id ? "active" : ""}`}
               onClick={() => {
-                setActive(link.id);
                 setIsCollapse(!isCollapsed);
               }}
             >
