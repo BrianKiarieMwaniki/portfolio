@@ -1,7 +1,15 @@
 import { ToastContainer } from "react-toastify";
-import Home from "./pages/Home";
+import {Home,NotFound} from "./pages";
 import "react-toastify/dist/ReactToastify.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />,
+      errorElement:<NotFound/>
+    },
+  ]);
   return (
     <div className="App">
       <ToastContainer
@@ -10,7 +18,7 @@ function App() {
         draggable={true}
         closeButton={false}
       />
-      <Home />
+      <RouterProvider router={router} />
     </div>
   );
 }

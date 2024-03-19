@@ -34,9 +34,9 @@ const Contact = () => {
         client_name: form.name,
         message: form.message,
       });
-  
+
       console.log(response);
-  
+
       if (response.status === 200) {
         toast.success("Message sent successfully", {
           icon: ({ theme, type }) => (
@@ -50,48 +50,9 @@ const Contact = () => {
           ),
         });
       }
-    }finally {
+    } finally {
       setIsLoading(false);
     }
-    
-
-    // emailjs
-    //   .send(
-    //     `${process.env.REACT_APP_EMAIL_JS_SERVICE_ID}`,
-    //     `${process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID}`,
-    //     {
-    //       client_name: form.name,
-    //       client_email: form.email,
-    //       message: form.message,
-    //     },
-    //     { publicKey: `${process.env.REACT_APP_EMAIL_JS_PUBLIC_KEY}` }
-    //   )
-    //   .then(
-    //     () => {
-    //       setIsLoading(false);
-    //       //set success toast message
-    //       toast.success("Message sent successfully", {
-    //         icon: ({ theme, type }) => (
-    //           <img
-    //             src={emailSent}
-    //             style={{ marginRight: "0.25rem" }}
-    //             width={35}
-    //             height={35}
-    //             alt="email sent"
-    //           />
-    //         ),
-    //       });
-    //       setForm({ name: "", email: "", message: "" });
-    //     },
-    //     (error) => {
-    //       setIsLoading(false);
-    //       console.log(error);
-    //       //set error toast message
-    //       toast.error("Oops! Failed to sent. Please try again.", {
-    //         icon: false,
-    //       });
-    //     }
-    //   );
   };
 
   return (
