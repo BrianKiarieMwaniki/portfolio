@@ -4,6 +4,7 @@ import { Tilt } from "react-tilt";
 import { fadeIn, slideIn, textVariant } from "../utils/motion";
 import { projects } from "../constants";
 import { useScrollAnimation } from "../hooks";
+import { useDispatchSectionInView } from "../hooks/useDispatchSectionInView";
 
 type ProjectCardProps = {
   index: number;
@@ -82,7 +83,9 @@ const ProjectCard: FC<ProjectCardProps> = ({
 };
 
 const Projects = () => {
-  const { ref, animation } = useScrollAnimation();
+  const { ref,isInView, animation } = useScrollAnimation();
+
+  useDispatchSectionInView(isInView, "projects");
 
   return (
     <section ref={ref} className="section projects" id="projects">

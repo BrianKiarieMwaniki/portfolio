@@ -7,6 +7,7 @@ import "react-vertical-timeline-component/style.min.css";
 import { textVariant } from "../utils/motion";
 import { experiences } from "../constants";
 import { useScrollAnimation } from "../hooks";
+import { useDispatchSectionInView } from "../hooks/useDispatchSectionInView";
 
 type ExperienceCardProps = {
   title: string;
@@ -48,9 +49,12 @@ const ExperienceCard = (experience: ExperienceCardProps) => {
 };
 
 const WorkExperience = () => {
-  const { ref, animation } = useScrollAnimation();
+  const { ref,isInView, animation } = useScrollAnimation();
+
+  useDispatchSectionInView(isInView, "experience");
+
   return (
-    <section ref={ref} className="section experience">
+    <section ref={ref} className="section experience" id="experience">
       <motion.div variants={textVariant()} initial="hidden" animate={animation}>
         <h4 className="sub-heading">What I have done</h4>
         <h1 className="heading">Work Experience.</h1>

@@ -1,6 +1,7 @@
 import { skills } from "../constants";
 import { motion } from "framer-motion";
 import { useScrollAnimation, useStaggerAnimation } from "../hooks";
+import { useDispatchSectionInView } from "../hooks/useDispatchSectionInView";
 
 type SkillCardProps = {
   name: string;
@@ -23,6 +24,10 @@ const SkillCard = ({ name, icon }: SkillCardProps) => {
 
 const Skills = () => {
   const { ref, isInView } = useScrollAnimation({ triggerOnce: true });
+
+  useDispatchSectionInView(isInView, "skills");
+
+  
   const scope = useStaggerAnimation({
     isInView,
     element: "article",
@@ -31,9 +36,11 @@ const Skills = () => {
     stiffness: 100,
     staggerEase: [0.01, 0.94, 1, 0.81],
   });
+
+
   return (
     <div ref={ref}>
-      <section className="section skills">
+      <section className="section skills" id="skills">
         <motion.div ref={scope} className="skills__cards">
           {skills.map((skill, index) => (
             <article key={index}>

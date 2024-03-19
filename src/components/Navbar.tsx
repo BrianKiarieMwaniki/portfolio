@@ -1,9 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { logo } from "../assets";
+import { useSelector } from "react-redux";
+import { navLinks } from "../constants";
+
+interface AppState {
+  scroll: {
+    currentSection: string;
+  };
+}
 
 const Navbar = () => {
   const [isCollapsed, setIsCollapse] = useState(false);
+  const [active, setActive] = useState("");
+  const currentSection = useSelector(
+    (state: AppState) => state.scroll.currentSection
+  );
+
+  useEffect(() => {
+    setActive(currentSection);
+  }, [currentSection]);
+
+  console.log(currentSection);
+
   return (
     <nav className="navbar">
       <Link
@@ -25,17 +44,18 @@ const Navbar = () => {
 
       <div className={`navbar__collapse ${isCollapsed ? "show" : ""}`}>
         <ul className="navbar__links">
-          <li onClick={() => setIsCollapse(!isCollapsed)}>
-            <a className="active" href="#aboutme">
-              About
-            </a>
-          </li>
-          <li onClick={() => setIsCollapse(!isCollapsed)}>
-            <a href="#projects">Projects</a>
-          </li>
-          <li onClick={() => setIsCollapse(!isCollapsed)}>
-            <a href="#contactme">Contact Me</a>
-          </li>
+          {navLinks.map((link) => (
+            <li
+              key={link.id}
+              className={`${active === link.id ? "active" : ""}`}
+              onClick={() => {
+                setActive(link.id);
+                setIsCollapse(!isCollapsed);
+              }}
+            >
+              <a href={`#${link.id}`}>{link.title}</a>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>

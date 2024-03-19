@@ -3,6 +3,7 @@ import parse from "html-react-parser";
 import { AnimationControls, motion } from "framer-motion";
 import { services } from "../constants";
 import { slideIn, textVariant } from "../utils/motion";
+import { useDispatchSectionInView } from "../hooks/useDispatchSectionInView";
 
 type ServiceCardProps = {
   index: number;
@@ -32,10 +33,12 @@ const ServiceCard = ({ index, title, icon, animation }: ServiceCardProps) => {
 };
 
 const AboutMe = () => {
-  const { ref, animation } = useScrollAnimation();
+  const { ref,isInView, animation } = useScrollAnimation();
+
+  useDispatchSectionInView(isInView, "about");
 
   return (
-    <div ref={ref} id="aboutme">
+    <div ref={ref} id="about">
       <section className="section about">
         <motion.div
           variants={textVariant()}

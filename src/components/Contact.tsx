@@ -6,9 +6,10 @@ import { PhoneCanvas } from "./canvas";
 import { toast } from "react-toastify";
 import { emailSent } from "../assets";
 import { sendEmail } from "../services/sendEmailService";
+import { useDispatchSectionInView } from "../hooks/useDispatchSectionInView";
 
 const Contact = () => {
-  const { ref, animation } = useScrollAnimation();
+  const { ref,isInView, animation } = useScrollAnimation();
   const formRef = useRef<HTMLFormElement>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [form, setForm] = useState({
@@ -16,6 +17,8 @@ const Contact = () => {
     email: "",
     message: "",
   });
+
+  useDispatchSectionInView(isInView, "contact");
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -56,7 +59,7 @@ const Contact = () => {
   };
 
   return (
-    <section ref={ref} className="section contact" id="contactme">
+    <section ref={ref} className="section contact" id="contact">
       <div className="contact__col-1">
         <motion.div
           variants={textVariant()}
