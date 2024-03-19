@@ -6,9 +6,10 @@ import { PhoneCanvas } from "./canvas";
 import { toast } from "react-toastify";
 import { emailSent } from "../assets";
 import { sendEmail } from "../services/sendEmailService";
+import { useDispatchSectionInView } from "../hooks/useDispatchSectionInView";
 
 const Contact = () => {
-  const { ref, animation } = useScrollAnimation();
+  const { ref,isInView, animation } = useScrollAnimation();
   const formRef = useRef<HTMLFormElement>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [form, setForm] = useState({
@@ -16,6 +17,8 @@ const Contact = () => {
     email: "",
     message: "",
   });
+
+  useDispatchSectionInView(isInView, "contact");
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -34,9 +37,9 @@ const Contact = () => {
         client_name: form.name,
         message: form.message,
       });
-  
+
       console.log(response);
-  
+
       if (response.status === 200) {
         toast.success("Message sent successfully", {
           icon: ({ theme, type }) => (
@@ -50,52 +53,13 @@ const Contact = () => {
           ),
         });
       }
-    }finally {
+    } finally {
       setIsLoading(false);
     }
-    
-
-    // emailjs
-    //   .send(
-    //     `${process.env.REACT_APP_EMAIL_JS_SERVICE_ID}`,
-    //     `${process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID}`,
-    //     {
-    //       client_name: form.name,
-    //       client_email: form.email,
-    //       message: form.message,
-    //     },
-    //     { publicKey: `${process.env.REACT_APP_EMAIL_JS_PUBLIC_KEY}` }
-    //   )
-    //   .then(
-    //     () => {
-    //       setIsLoading(false);
-    //       //set success toast message
-    //       toast.success("Message sent successfully", {
-    //         icon: ({ theme, type }) => (
-    //           <img
-    //             src={emailSent}
-    //             style={{ marginRight: "0.25rem" }}
-    //             width={35}
-    //             height={35}
-    //             alt="email sent"
-    //           />
-    //         ),
-    //       });
-    //       setForm({ name: "", email: "", message: "" });
-    //     },
-    //     (error) => {
-    //       setIsLoading(false);
-    //       console.log(error);
-    //       //set error toast message
-    //       toast.error("Oops! Failed to sent. Please try again.", {
-    //         icon: false,
-    //       });
-    //     }
-    //   );
   };
 
   return (
-    <section ref={ref} className="section contact">
+    <section ref={ref} className="section contact" id="contact">
       <div className="contact__col-1">
         <motion.div
           variants={textVariant()}

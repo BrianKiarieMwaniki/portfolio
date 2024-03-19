@@ -28,7 +28,7 @@ const Home = (props: Props) => {
       <>
         <Projects />
       </>
-      <section>
+      {/* <section>
         Services:
         <ul>
           <li>
@@ -38,7 +38,7 @@ const Home = (props: Props) => {
             each service and how you can help potential clients or employers.
           </li>
         </ul>
-      </section>
+      </section> */}
       <div className="relative z-0">
         <Contact />
         <StarsCanvas/>

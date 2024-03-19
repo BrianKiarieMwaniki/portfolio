@@ -87,3 +87,19 @@
   animation: ellipsis 1.5s infinite;
   font-size:1.5rem;
 }
+
+.flex{
+  display:flex;
+}
+
+.flex-column{
+  flex-direction: column;
+}
+
+.justify-center{
+  justify-items: center;
+}
+
+.align-center{
+  align-items: center;
+}

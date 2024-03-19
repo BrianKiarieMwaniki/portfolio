@@ -20,6 +20,29 @@ import {
   webDev,
 } from "../assets";
 
+const navLinks = [
+  {
+    id: "about",
+    title: "About",
+  },
+  {
+    id: "experience",
+    title: "Experience",
+  },
+  {
+    id:"skills",
+    title: "Skills"
+  },
+  {
+    id: "projects",
+    title:"Projects"
+  },
+  {
+    id: "contact",
+    title: "Contact Me",
+  },
+];
+
 const services = [
   {
     title: "Web <br /> Development",
@@ -164,4 +187,4 @@ const projects = [
   },
 ];
 
-export { services, experiences, skills,projects };
+export { navLinks, services, experiences, skills,projects };

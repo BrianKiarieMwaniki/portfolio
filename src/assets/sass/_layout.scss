@@ -1,3 +1,106 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f5f5f5;
+  padding: 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+
+  @include respond(tab-port) {
+    flex-wrap: wrap;
+  }
+
+  &__brand {
+    height: 5rem;
+    width: 5rem;
+
+    &--logo {
+      width: 5rem;
+    }
+  }
+
+  &__burger {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+    width: 4rem;
+    height: 4rem;
+    cursor: pointer;
+
+    @include respond(tab-port) {
+      display: flex;
+    }
+
+    & .icon {
+      height: 3.5rem;
+      width: 3.5rem;
+      fill: rgb(var(--color-black));
+      transition: fill 0.5s ease;
+    }
+
+    &:hover {
+      & .icon {
+        fill: rgb(var(--color-primary));
+      }
+    }
+  }
+
+  &__collapse {
+    transition: height 3s ease;
+    @include respond(tab-port) {
+      display: none;
+    }
+
+    &.show {
+      @include respond(tab-port) {
+        flex-basis: auto;
+        width: 100%;
+        display: flex;
+      }
+      transition: height 3s ease;
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include respond(tab-port) {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      row-gap: 1.2rem;
+    }
+
+    & li {
+      list-style: none;
+      padding: 0 2rem;
+
+      a {
+        text-decoration: none;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #555151;
+        transition: color 0.3s ease-in;
+
+        &:hover {
+          color: rgb(var(--color-primary));
+        }
+      }
+      &.active a {
+        color: rgb(var(--color-primary));
+      }
+    }
+  }
+}
+
 .hero {
   min-height: 100vh;
   min-height: 100svh;
@@ -23,16 +126,6 @@
 
   @include respond(mobile) {
     padding: 1rem;
-  }
-
-  &__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-  }
-
-  &__logo {
-    height: 5.5rem;
   }
 
   &__info {
@@ -117,10 +210,10 @@
 }
 
 .section {
-  padding: 4rem 8rem;
+  padding: 10rem 8rem;
 
   @include respond(phone) {
-    padding: 2rem;
+    padding: 6rem 2rem;
   }
 }
 
@@ -312,9 +405,9 @@
   flex-direction: row;
   gap: 4rem;
 
- @include respond(tab-land){
-  flex-direction: column-reverse;
- }
+  @include respond(tab-land) {
+    flex-direction: column-reverse;
+  }
 
   &__col-1 {
     flex: 0.75;

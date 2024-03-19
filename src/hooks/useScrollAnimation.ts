@@ -6,7 +6,7 @@ type UseScrollAnimationProps = {
     triggerOnce?:boolean
 }
 
-export const useScrollAnimation = ({triggerOnce = true}:UseScrollAnimationProps = {}) =>{
+export const useScrollAnimation = ({triggerOnce = false}:UseScrollAnimationProps = {}) =>{
     const[ref, isInView] = useInView({triggerOnce:triggerOnce, threshold:0.1});
 
     const animation = useAnimation();

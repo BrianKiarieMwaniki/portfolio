@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { heroDp, hero_bg, logo } from "../assets";
-import { useTypewriter } from "../hooks";
+import { heroDp, hero_bg } from "../assets";
+import { useDispatchSectionInView, useScrollAnimation, useTypewriter } from "../hooks";
 
 type Props = {};
 
@@ -15,11 +15,12 @@ const Hero: FC = (props: Props) => {
     deletingSpeed: 300,
     delayBetweenWords: 2500,
   });
+
+  const { ref, isInView } = useScrollAnimation();
+
+  useDispatchSectionInView(isInView, "hero");
   return (
-    <section className="hero" style={{ backgroundImage: `url(${hero_bg})` }}>
-      <div className="hero__logo-box">
-        <img src={logo} alt="logo" className="hero__logo" />
-      </div>
+    <section ref={ref} className="hero" style={{ backgroundImage: `url(${hero_bg})` }}>
       <div className="hero__info">
         <h1 className="heading">
           Hi, I'm  <span className="primary-color">Brian</span>{" "}
