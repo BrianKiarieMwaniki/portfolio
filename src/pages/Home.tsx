@@ -1,10 +1,10 @@
 import { StarsCanvas } from "../components/canvas";
 import {
-  Hero,
   AboutMe,
+  Contact,
+  Hero,
   Projects,
   Skills,
-  Contact,
   WorkExperience,
 } from "./../components/index";
 
@@ -13,21 +13,11 @@ type Props = {};
 const Home = (props: Props) => {
   return (
     <>
-      <>
-        <Hero />
-      </>
-      <>
-        <AboutMe />
-      </>
-      <>
-        <WorkExperience />
-      </>
-      <>
-        <Skills />
-      </>
-      <>
-        <Projects />
-      </>
+      <Hero />
+      <AboutMe />
+      <WorkExperience />
+      <Skills />
+      <Projects />
       {/* <section>
         Services:
         <ul>
@@ -41,7 +31,7 @@ const Home = (props: Props) => {
       </section> */}
       <div className="relative z-0">
         <Contact />
-        <StarsCanvas/>
+        <StarsCanvas />
       </div>
     </>
   );

@@ -30,12 +30,12 @@ const navLinks = [
     title: "Experience",
   },
   {
-    id:"skills",
-    title: "Skills"
+    id: "skills",
+    title: "Skills",
   },
   {
     id: "projects",
-    title:"Projects"
+    title: "Projects",
   },
   {
     id: "contact",
@@ -68,7 +68,7 @@ const experiences = [
     points: [
       "Developed custom software solutions for diverse client needs, emphasizing modular and maintainable code.",
       "Worked closely with clients to define requirements.",
-      "Reviewed and optimized existing codebases, enhancing application performance and maintainability for several clients."
+      "Reviewed and optimized existing codebases, enhancing application performance and maintainability for several clients.",
     ],
   },
   {
@@ -76,11 +76,11 @@ const experiences = [
     company_name: "Selltime Pty Ltd, AU",
     icon: selltime,
     iconBg: "#383E56",
-    date: "July 2023 - Present",
+    date: "July 2023 - July 2024",
     points: [
       "Developing and managing web application development using Asp.Net Core MVC, focusing on modular and scalable code design.",
       "Collaborating with cross-functional teams to deliver high-quality products.",
-      "Led a team initiative to standardize responsive design practices, improving consistency across projects."
+      "Led a team initiative to standardize responsive design practices, improving consistency across projects.",
     ],
   },
   {
@@ -93,7 +93,7 @@ const experiences = [
       "Developed and maintained desktop applications using the .NET Framework and SQL.",
       "Integrated applications with third-party APIs, enhancing functionality and user options.",
       "Wrote and maintained hardware integration modules.",
-      "Provided technical support and expertise to customer support teams."
+      "Provided technical support and expertise to customer support teams.",
     ],
   },
   {
@@ -105,7 +105,7 @@ const experiences = [
     points: [
       "Led the development of a dynamic web rendering system using Blazor and .NET Core, enhancing user experience and system efficiency.",
       "Implemented responsive web design principles",
-      "Actively contributed to code reviews, focusing on improving code quality and maintainability."
+      "Actively contributed to code reviews, focusing on improving code quality and maintainability.",
     ],
   },
 ];
@@ -183,8 +183,8 @@ const projects = [
     image: weatherApp,
     codeLink: "https://github.com/BrianKiarieMwaniki/weatherapp",
     siteLink: "https://weatherapp-ruby-eight.vercel.app/",
-    published:true
+    published: true,
   },
 ];
 
-export { navLinks, services, experiences, skills,projects };
+export { experiences, navLinks, projects, services, skills };

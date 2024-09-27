@@ -2,13 +2,16 @@ import { ToastContainer } from "react-toastify";
 import { Home, NotFound } from "./pages";
 import "react-toastify/dist/ReactToastify.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import { Navbar } from "./components";
+import { Footer, Navbar } from "./components";
 function App() {
   const Layout = () => {
     return (
       <>
         <Navbar />
-        <Outlet />
+        <main>
+          <Outlet />
+        </main>
+        <Footer />
       </>
     );
   };
@@ -20,7 +23,7 @@ function App() {
       errorElement: <NotFound />,
       children: [
         {
-          path: "/",
+          path: "",
           element: <Home />,
         },
       ],
