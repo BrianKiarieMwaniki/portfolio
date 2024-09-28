@@ -29,6 +29,7 @@ import upwork from "./images/companies/upwork.png";
 import emailSent from "./images/email-sent.png";
 
 import weatherApp from "./images/projects/weatherApp.png";
+import gameHub from './images/projects/gamehub.png';
 export {
   azure,
   backendDev,
@@ -55,5 +56,6 @@ export {
   typescript,
   upwork,
   weatherApp,
+  gameHub,
   webDev,
 };
