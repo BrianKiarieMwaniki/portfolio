@@ -6,6 +6,7 @@ import {
   css,
   desktopDev,
   ezzybooks,
+  gameHub,
   git,
   html,
   javascript,
@@ -183,6 +184,33 @@ const projects = [
     image: weatherApp,
     codeLink: "https://github.com/BrianKiarieMwaniki/weatherapp",
     siteLink: "https://weatherapp-ruby-eight.vercel.app/",
+    published: true,
+  },
+  {
+    name: "GameHub",
+    description: "This is a video game discovery app replicating RAWG.io platform using React, Typescript, and the RAWG.io API. The app allows users to search, filter and explore a wide range of video games.",
+    tags: [
+      {
+        name: "react",
+        color: "#61DAFB",
+      },
+      {
+        name: "chakra ui",
+        color: "#319795",
+      },
+      {
+        name: "restful API",
+        color: "#90cdf4",
+      },
+      {
+        name: "typescript",
+        color: "#3178c6",
+      },
+    ],
+    image: gameHub,
+    codeLink: "https://github.com/BrianKiarieMwaniki/game-hub",
+    siteLink:
+      "https://game-hub-git-features-improvements-briankiariemwanikis-projects.vercel.app/",
     published: true,
   },
 ];
