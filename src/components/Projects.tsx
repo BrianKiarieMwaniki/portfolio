@@ -39,8 +39,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
       initial="hidden"
       animate={animation}
     >
-      <Tilt
-        options={{ max: 45, scale: 1, speed: 450 }}
+      <div
         className="project-card"
       >
         <div className="project-card__content">
@@ -77,7 +76,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
             ))}
           </div>
         </div>
-      </Tilt>
+      </div>
     </motion.div>
   );
 };
