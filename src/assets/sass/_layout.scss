@@ -395,7 +395,7 @@
     justify-content: center;
 
     @include respond(tab-port) {
-      align-items: center;
+      align-items: stretch;
     }
   }
 }

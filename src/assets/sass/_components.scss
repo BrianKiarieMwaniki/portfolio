@@ -124,16 +124,22 @@
     object-fit: contain;
     width: 4rem;
     height: 4rem;
+    cursor:pointer;
 
     & .icon {
       height: 2.5rem;
       width: 2.5rem;
       fill: rgb(var(--color-black));
+      transition: fill 1.25s ease 1.245s linear;
+      transition: height 1s cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s linear;
+
+      &:hover {
+        fill: rgb(var(--color-primary));
+        height: 2.75rem;
+        width: 2.75rem;
+      }
     }
 
-    &:hover {
-      fill: rgb(var(--color-primary));
-    }
   }
 
   &__name {
