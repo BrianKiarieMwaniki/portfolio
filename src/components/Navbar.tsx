@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { logo } from "../assets";
 import { useSelector } from "react-redux";
 import { navLinks } from "../constants";
+import gsap from "gsap";
 interface AppState {
   scroll: {
     currentSection: string;
@@ -11,6 +12,7 @@ interface AppState {
 
 const Navbar = () => {
   const navbarRef = useRef(null);
+  const collapseRef = useRef(null);
   const [isCollapsed, setIsCollapse] = useState(false);
   const [active, setActive] = useState("");
   const currentSection = useSelector(
@@ -19,7 +21,22 @@ const Navbar = () => {
 
   useEffect(() => {
     setActive(currentSection);
-  }, [currentSection, active]);
+
+    if (isCollapsed) {
+      gsap.to(collapseRef.current, {
+        height: "auto",
+        duration: 0.5,
+        ease: "sine",
+      });
+    } else {
+      gsap.to(collapseRef.current, {
+        height: "4rem",
+        duration: 0.5,
+        ease: "sine",
+        padding: "1rem 0",
+      });
+    }
+  }, [currentSection, active, isCollapsed]);
 
   return (
     <nav className="navbar" ref={navbarRef}>
@@ -43,7 +60,10 @@ const Navbar = () => {
         </svg>
       </div>
 
-      <div className={`navbar__collapse ${isCollapsed ? "show" : ""}`}>
+      <div
+        ref={collapseRef}
+        className={`navbar__collapse ${isCollapsed ? "show" : ""}`}
+      >
         <ul className="navbar__links">
           {navLinks.map((link) => (
             <li

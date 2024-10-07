@@ -1,6 +1,5 @@
 import { AnimationControls, motion } from "framer-motion";
 import React, { FC } from "react";
-import { Tilt } from "react-tilt";
 import { fadeIn, slideIn, textVariant } from "../utils/motion";
 import { projects } from "../constants";
 import { useScrollAnimation } from "../hooks";

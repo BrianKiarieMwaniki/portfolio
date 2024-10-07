@@ -10,14 +10,14 @@
 
 .Toastify {
   &__toast {
-    &-container{
-      width:max-content !important;
+    &-container {
+      width: max-content !important;
       max-width: var(--toastify-toast-width) !important;
     }
     &-body {
       font-size: 1.5rem;
       font-family: inherit !important;
-      font-weight: 400 !important;      
+      font-weight: 400 !important;
     }
     &-icon {
       width: max-content !important;
@@ -27,8 +27,8 @@
       background: rgb(var(--color-primary)) !important;
       color: rgb(var(--color-white)) !important;
     }
-    &--error{
-      background: red !important;     
+    &--error {
+      background: red !important;
       color: rgb(var(--color-white)) !important;
     }
   }
@@ -100,6 +100,10 @@
   min-width: 22rem;
   width: 40rem;
 
+  @include respond(tab-port) {
+    width: 90%;
+  }
+
   &__content {
     width: 100%;
     position: relative;
@@ -124,7 +128,7 @@
     object-fit: contain;
     width: 4rem;
     height: 4rem;
-    cursor:pointer;
+    cursor: pointer;
 
     & .icon {
       height: 2.5rem;
@@ -139,7 +143,6 @@
         width: 2.75rem;
       }
     }
-
   }
 
   &__name {
@@ -229,16 +232,24 @@
 
   &__btn {
     background-color: rgb(var(--color-accent));
-    transition: background .8s ease .5s;
+    transition: background 0.8s ease 0.5s;
     @include respond(phone) {
       width: 100%;
     }
 
-    &:hover{
-      background:radial-gradient(circle at center,rgb(var(--color-secondary)), rgb(var(--color-primary)));
+    &:hover {
+      background: radial-gradient(
+        circle at center,
+        rgb(var(--color-secondary)),
+        rgb(var(--color-primary))
+      );
     }
-    &:disabled{
-      background:radial-gradient(circle at center,rgba(var(--color-dark-grey), 0.5), rgba(var(--color-dark-grey), 0.75));
+    &:disabled {
+      background: radial-gradient(
+        circle at center,
+        rgba(var(--color-dark-grey), 0.5),
+        rgba(var(--color-dark-grey), 0.75)
+      );
       box-shadow: none;
     }
   }
