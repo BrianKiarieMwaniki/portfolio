@@ -12,7 +12,7 @@ type Props = {};
 
 const Home = (props: Props) => {
   return (
-    <>
+    <div>
       <Hero />
       <AboutMe />
       <WorkExperience />
@@ -33,7 +33,7 @@ const Home = (props: Props) => {
         <Contact />
         <StarsCanvas />
       </div>
-    </>
+    </div>
   );
 };
 

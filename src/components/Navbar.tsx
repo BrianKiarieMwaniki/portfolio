@@ -1,16 +1,26 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { RefObject, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { logo } from "../assets";
 import { useSelector } from "react-redux";
 import { navLinks } from "../constants";
 import gsap from "gsap";
+
+import { ScrollToPlugin } from "gsap/all";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollToPlugin);
+
 interface AppState {
   scroll: {
     currentSection: string;
   };
 }
 
-const Navbar = () => {
+interface Props {
+  containerRef: RefObject<HTMLElement>;
+}
+
+const Navbar = ({ containerRef }: Props) => {
   const navbarRef = useRef(null);
   const collapseRef = useRef(null);
   const [isCollapsed, setIsCollapse] = useState(false);
@@ -18,6 +28,8 @@ const Navbar = () => {
   const currentSection = useSelector(
     (state: AppState) => state.scroll.currentSection
   );
+
+  const { contextSafe } = useGSAP({ scope: containerRef });
 
   useEffect(() => {
     setActive(currentSection);
@@ -37,6 +49,17 @@ const Navbar = () => {
       });
     }
   }, [currentSection, active, isCollapsed]);
+
+  const scrollTo = contextSafe((sectionId: string) => {
+    gsap.to(window, {
+      duration: 1.5,
+      scrollTo: {
+        y: `#${sectionId}`,
+        offsetY: 120,
+      },
+      ease: "power3.out",
+    });
+  });
 
   return (
     <nav className="navbar" ref={navbarRef}>
@@ -71,9 +94,10 @@ const Navbar = () => {
               className={`${active === link.id ? "active" : ""}`}
               onClick={() => {
                 setIsCollapse(!isCollapsed);
+                scrollTo(link.id);
               }}
             >
-              <a href={`#${link.id}`}>{link.title}</a>
+              <span>{link.title}</span>
             </li>
           ))}
         </ul>

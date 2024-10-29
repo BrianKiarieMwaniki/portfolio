@@ -86,18 +86,20 @@
       list-style: none;
       padding: 0 2rem;
 
-      a {
+      a,span {
         text-decoration: none;
         font-size: 1.8rem;
         font-weight: 600;
         color: #555151;
         transition: color 0.3s ease-in;
+        cursor: pointer;
 
         &:hover {
           color: rgb(var(--color-primary));
         }
       }
-      &.active a {
+      &.active a,
+      &.active span {
         color: rgb(var(--color-primary));
       }
     }
