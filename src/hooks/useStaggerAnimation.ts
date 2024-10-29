@@ -20,10 +20,8 @@ export const useStaggerAnimation = ({
   bounce = 0,
   stiffness= 100
 }: UseStaggerAnimationProps) => {
-  const [scope, animate] = useAnimate();
+  const [scope, animate] = useAnimate(); 
   
-  
-
 
   useEffect(() => {
     animate(
