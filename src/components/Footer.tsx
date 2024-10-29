@@ -39,6 +39,17 @@ const Footer = () => {
               </svg>
             </a>
           </li>
+          <li>
+            <a
+              href="https://join.skype.com/invite/B0ZK0eQAqgrN"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg className="icon" style={{ fill: "#00AFF0" }}>
+                <use xlinkHref="/icons.svg#icon-skype"></use>
+              </svg>
+            </a>
+          </li>
         </ul>
       </div>
       <p className="paragraph copyright">
