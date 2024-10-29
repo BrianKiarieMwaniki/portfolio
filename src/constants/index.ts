@@ -11,10 +11,12 @@ import {
   html,
   javascript,
   netcore,
+  nextjs,
   nodejs,
   reactjs,
   selltime,
   sql,
+  tailwind,
   typescript,
   upwork,
   weatherApp,
@@ -121,13 +123,10 @@ const skills = [
     icon: css,
   },
   {
-    name: "C#",
-    icon: csharp,
+    name: "TailwindCss",
+    icon: tailwind,
   },
-  {
-    name: ".NET Core",
-    icon: netcore,
-  },
+
   {
     name: "Javascript",
     icon: javascript,
@@ -141,16 +140,28 @@ const skills = [
     icon: reactjs,
   },
   {
+    name: "NextJS",
+    icon: nextjs,
+  },
+  {
+    name: "NodeJs",
+    icon: nodejs,
+  },
+  {
+    name: "C#",
+    icon: csharp,
+  },
+  {
+    name: ".NET Core",
+    icon: netcore,
+  },
+  {
     name: "Blazor",
     icon: blazor,
   },
   {
     name: "Azure",
     icon: azure,
-  },
-  {
-    name: "NodeJs",
-    icon: nodejs,
   },
   {
     name: "SQL",
