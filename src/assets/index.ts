@@ -19,6 +19,8 @@ import nodejs from "./images/tech/nodejs.png";
 import reactjs from "./images/tech/reactjs.png";
 import sql from "./images/tech/SQL.png";
 import typescript from "./images/tech/typescript.png";
+import nextjs from './images/tech/next-js.png';
+import tailwind from './images/tech/tailwindcss.png';
 
 import phone from "./images/phone.png";
 
@@ -54,6 +56,8 @@ export {
   selltime,
   sql,
   typescript,
+  tailwind,
+  nextjs,
   upwork,
   weatherApp,
   gameHub,

@@ -38,7 +38,7 @@ const AboutMe = () => {
   useDispatchSectionInView(isInView, "about");
 
   return (
-    <div ref={ref} id="aboutme">
+    <div ref={ref} id="about">
       <section className="section about">
         <motion.div
           variants={textVariant()}

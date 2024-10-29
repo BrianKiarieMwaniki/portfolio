@@ -1,6 +1,11 @@
 import { FC } from "react";
 import { heroDp, hero_bg } from "../assets";
-import { useDispatchSectionInView, useScrollAnimation, useTypewriter } from "../hooks";
+import {
+  useDispatchSectionInView,
+  useScrollAnimation,
+  useTypewriter,
+} from "../hooks";
+import gsap from "gsap";
 
 type Props = {};
 
@@ -19,16 +24,28 @@ const Hero: FC = (props: Props) => {
   const { ref, isInView } = useScrollAnimation();
 
   useDispatchSectionInView(isInView, "hero");
+
+  const scrollTo = () => {
+    gsap.to(window, {
+      duration: 1.8,
+      scrollTo: { y: "#about", offsetY: 200 },
+      ease:'power2.out'
+    });
+  };
+
   return (
-    <section ref={ref} className="hero" style={{ backgroundImage: `url(${hero_bg})` }}>
+    <section
+      ref={ref}
+      className="hero"
+      style={{ backgroundImage: `url(${hero_bg})` }}
+    >
       <div className="hero__info">
         <h1 className="heading">
-          Hi, I'm  <span className="primary-color">Brian</span>{" "}
+          Hi, I'm <span className="primary-color">Brian</span>{" "}
         </h1>
         <p className="paragraph">
-          I specialize in  <span className="primary-color">#{animatedText}</span>
+          I specialize in <span className="primary-color">#{animatedText}</span>
         </p>
-
       </div>
       <div className="hero__img-container">
         <div className="hexagon">
@@ -39,9 +56,9 @@ const Hero: FC = (props: Props) => {
       </div>
 
       <div className="hero__btn-container">
-        <a href="#aboutme" className="btn btn--primary btn--animated">
+        <button onClick={scrollTo} className="btn btn--primary btn--animated">
           Learn More
-        </a>
+        </button>
       </div>
     </section>
   );
